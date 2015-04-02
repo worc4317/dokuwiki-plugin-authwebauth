@@ -1,0 +1,7 @@
+base   authwebauth
+author Stephen Koo
+email  sckoo@cs.stanford.edu
+date   2015-04-01
+name   Stanford WebAuth Plugin
+desc   Provides user authentication against Stanford's WebAuth system
+url    http://www.dokuwiki.org/plugin:authwebauth
