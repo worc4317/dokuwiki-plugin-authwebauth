@@ -33,7 +33,7 @@ class auth_plugin_authwebauth extends DokuWiki_Auth_Plugin {
         // TODO store group data somewhere
         $USERINFO['name'] = $_ENV['WEBAUTH_LDAP_DISPLAYNAME'];
         $USERINFO['mail'] = $_ENV['WEBAUTH_LDAP_MAIL'];
-        $USERINFO['grps'] = array('user', 'admin');
+        $USERINFO['grps'] = array($conf['defaultgroup']);
 
         // Set session
         $_SERVER['REMOTE_USER']                = $user;
