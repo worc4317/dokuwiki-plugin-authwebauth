@@ -5,7 +5,7 @@ if(!defined('DOKU_INC')) die();
 /**
  * Stanford WebAuth authentication backend
  *
- * @license    GPL 3 (http://www.gnu.org/licenses/gpl.html)
+ * @license    GPL 2 (http://www.gnu.org/licenses/gpl.html)
  * @author     Stephen Koo <sckoo@cs.stanford.edu>
  */
 class auth_plugin_authwebauth extends DokuWiki_Auth_Plugin {
