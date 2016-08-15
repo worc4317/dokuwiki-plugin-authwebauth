@@ -12,7 +12,6 @@ class auth_plugin_authwebauth extends DokuWiki_Auth_Plugin {
 
     public function __construct() {
         parent::__construct();
-	#print_r($_SERVER);
         // If WebAuth env variable is set, we're all good.
         if (!$_SERVER['WEBAUTH_USER']) {
             $this->success = false;
