@@ -12,9 +12,9 @@ class auth_plugin_authwebauth extends DokuWiki_Auth_Plugin {
 
     public function __construct() {
         parent::__construct();
-
+	#print_r($_SERVER);
         // If WebAuth env variable is set, we're all good.
-        if (!$_ENV['WEBAUTH_USER']) {
+        if (!$_SERVER['WEBAUTH_USER']) {
             $this->success = false;
         } else {
             $this->cando['external'] = true;
@@ -23,16 +23,17 @@ class auth_plugin_authwebauth extends DokuWiki_Auth_Plugin {
 
     function trustExternal($user, $pass, $sticky=false) {
         global $USERINFO;
-
+	//Add a global for conf so we can get the defaultuser config setting
+        global $conf;
         // Ignore $user and $pass, we will never use DokuWiki login form.
         // User is also guaranteed to be logged in if env variable is set
         // and this auth class was successfully instantiated.
-        $user = $_ENV['WEBAUTH_USER'];
+        $user = $_SERVER['WEBAUTH_USER'];
 
         // Set USERINFO
         // TODO store group data somewhere
-        $USERINFO['name'] = $_ENV['WEBAUTH_LDAP_DISPLAYNAME'];
-        $USERINFO['mail'] = $_ENV['WEBAUTH_LDAP_MAIL'];
+        $USERINFO['name'] = $_SERVER['WEBAUTH_LDAP_DISPLAYNAME'];
+        $USERINFO['mail'] = $_SERVER['WEBAUTH_LDAP_MAIL'];
         $USERINFO['grps'] = array($conf['defaultgroup']);
 
         // Set session
